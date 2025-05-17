@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "com.paymate.grpc.auth";
+option java_multiple_files = true;
+
+service AuthService {
+  rpc Login (LoginRequest) returns (LoginResponse);
+  rpc ValidateToken (TokenRequest) returns (TokenResponse);
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+  string userId = 2;
+}
+
+message TokenRequest {
+  string token = 1;
+}
+
+message TokenResponse {
+  bool valid = 1;
+  string userId = 2;
+}
