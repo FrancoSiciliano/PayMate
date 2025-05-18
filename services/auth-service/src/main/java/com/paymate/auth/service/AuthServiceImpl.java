@@ -13,7 +13,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public User login(String email, String password) {
 
-        User user = authRepository.getUserByEmail(email);
+        User user = getUserByEmail(email);
 
         if (user != null)
         {
@@ -21,5 +21,15 @@ public class AuthServiceImpl implements AuthService {
         }
 
         return null;
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return authRepository.getUserByEmail(email);
+    }
+
+    @Override
+    public User getUserById(int userId) {
+        return authRepository.getUserById(userId);
     }
 }

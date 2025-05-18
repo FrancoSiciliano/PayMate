@@ -27,4 +27,16 @@ public class AuthRepository {
         }
         return  null;
     }
+
+    public User getUserById(int id)
+    {
+        for (User user : users)
+        {
+            if (user.getUserId() == id)
+            {
+                return user;
+            }
+        }
+        return  null;
+    }
 }
